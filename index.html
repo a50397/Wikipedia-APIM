@@ -9,29 +9,40 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel = "stylesheet" type = "text/css" href = "css/mystyles.css" />
 
-    <link rel = "stylesheet" type = "text/css" href = "#" />
-    <!--Add your .css file-->
-    <style type="text/css">
-    </style>
-    <!--  Internal css link -->
-
-    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type = "text/javascript" src = "#"></script>
-    <!--Add Your External jQuery Plugin-->
-    <script type = "text/javascript" lang="javascript">
-    </script>
-    <!--  Internal jquery/javascript link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
 </head>
 
-
 <body>
-
-
-
-
-
-<script type="text/javascript" src="js/connect.js"></script>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>WSO2 API tests</h1>
+        </div>
+    </div>
+    <div id="text" class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><strong>Wikipedia API</strong></div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="wikisearch">Search in Wiki: </label>
+                        <input class="form-control" type="text" id="wikisearch" name="wikisearch">
+                    </div>
+                    <button class="btn btn-success" type="submit">Search</button>
+                </form>
+                <hr>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Server IP: <span id="serverIP"></span></div>
+                    <div class="panel-body" id="console">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/connect.js"></script>
 </body>
 
 </html>

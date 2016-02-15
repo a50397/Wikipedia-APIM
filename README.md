@@ -1,0 +1,1 @@
+Skuska pripojenia na WSO2 API cez jquery
