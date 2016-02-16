@@ -31,12 +31,17 @@
                         <label for="wikisearch">Search in Wiki: </label>
                         <input class="form-control" type="text" id="wikisearch" name="wikisearch">
                     </div>
-                    <button class="btn btn-success" type="submit">Search</button>
+                    <button class="btn btn-success" type="button" id="searchButton">Search</button>
                 </form>
                 <hr>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Server IP: <span id="serverIP"></span></div>
+                    <div class="panel-heading">Server: <span id="serverIP"></span></div>
                     <div class="panel-body" id="console">
+                        <p class="input" id="consoleInputText"></p>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" id='htmlReturn'>
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
