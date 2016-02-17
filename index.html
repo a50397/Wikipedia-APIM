@@ -23,29 +23,83 @@
         </div>
     </div>
     <div id="text" class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><strong>Wikipedia API</strong></div>
-            <div class="panel-body">
-                <form>
-                    <div class="form-group">
-                        <label for="wikisearch">Search in Wiki: </label>
-                        <input class="form-control" type="text" id="wikisearch" name="wikisearch">
-                    </div>
-                    <button class="btn btn-success" type="button" id="searchButton">Search</button>
-                </form>
-                <hr>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Server: <span id="serverIP"></span></div>
-                    <div class="panel-body" id="console">
-                        <p class="input" id="consoleInputText"></p>
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" id='htmlReturn'>
-                            </iframe>
+        <div class="row" style="padding-bottom:10px;">
+            <div class="col-sm-2 col-sm-push-10">
+                <button class="btn btn-info" id="regenerateButton">regenerate token</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active myTabs"><a href="#wiki" aria-controls="home" role="tab" data-toggle="tab">Wikipedia</a></li>
+                    <li role="presentation" class="myTabs"><a href="#calc" aria-controls="profile" role="tab" data-toggle="tab">Calculator</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="wiki">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><strong>Wikipedia API</strong></div>
+                            <div class="panel-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="wikisearch">Search in Wiki: </label>
+                                        <input class="form-control" type="text" id="wikisearch" name="wikisearch">
+                                    </div>
+                                    <button class="btn btn-success" type="button" id="searchButton">Search</button>
+                                </form>
+                                <hr>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Server: <span id="serverIP"></span></div>
+                                    <div class="panel-body" id="console">
+                                        <p class="input" id="consoleInputText"></p>
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" id='htmlReturn'>
+                                            </iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="calc">
+                        <div role="tabpanel" class="tab-pane active" id="calc">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><strong>Calculator API</strong></div>
+                            <div class="panel-body">
+                                <form class="form" id="calcForm">
+                                    <div class="form-group" id="">
+                                        <label for="x">X: </label>
+                                        <input type="text" id="x">
+                                        <div class="btn-group" data-toggle="buttons"  id="calcSubForm">
+                                            <label class="btn btn-default active">
+                                                <input type="radio" id="q156" name="operation" value="1" />+
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" id="q157" name="operation" value="2" />-
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" id="q158" name="operation" value="3" />*
+                                            </label>
+                                            <label class="btn btn-default">
+                                                <input type="radio" id="q159" name="operation" value="4" />/
+                                            </label>
+                                        </div>
+                                        <label for="y">Y: </label>
+                                        <input type="text" id="y">
+                                        <button type="button" id="equalsButton" class="btn btn-primary">sa rovná</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="disabled" for="vysledok">Výsledok: </label>
+                                        <input class="disabled" type="text" id="vysledok">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <script src="js/connect.js"></script>
 </body>
