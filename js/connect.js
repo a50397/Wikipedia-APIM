@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var IP = "http://10.100.103.31:8280/wikipedia/1.0.0";
-    var autorization = "66d68c2f15fe899eb15d28e482c7f1a1";
+    var autorization = "9205d37e9d299eb361c12165797d86a2";
 
     function consoleT(text, trieda, okno){
         //var p = $("<p></p>");
@@ -161,6 +161,65 @@ $(document).ready(function(){
 
         return false;
     })
+
+    var files;
+
+    $("#fileEnter").on('change', prepareUpload);
+
+    // Grab the files and set them to our variable
+    function prepareUpload(event)
+    {
+        files = event.target.files;
+    }
+
+    $('#sendFile').click(function(event){
+        var URL = "http://10.100.103.31:8180/sandman/startSandman";
+        //var URL = "http://10.100.103.31:8280/sandman/1.0.0/startSandman";
+        event.stopPropagation();
+        event.preventDefault();
+
+        var formData = new FormData();
+
+        formData.append("file",files[0]);
+
+        //dataType: "json",
+        //headers: { "Authorization": "Bearer " + autorization},
+        //contentType: false,
+
+        //var fd = new FormData();
+        //fd.append("CustomField", "This is some extra data");
+        $.ajax({
+            url: URL,
+            method: "POST",
+            processData: false,
+            data: formData,
+            success: function(data, textStatus, jqXHR)
+            {
+                if(typeof data.error === 'undefined')
+                {
+                    // Success so call function to process the form
+                    submitForm(event, data);
+                }
+                else
+                {
+                    // Handle errors here
+                    console.log('ERRORS: ' + data.error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                // Handle errors here
+                console.log('ERRORS: ' + textStatus + ' ' + errorThrown);
+                // STOP LOADING SPINNER
+            }
+        });
+    });
+
+    function submitForm(event, data)
+    {
+        console.log(event);
+        console.log(data);
+    }
 
     wikiList();
 })

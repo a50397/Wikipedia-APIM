@@ -5,6 +5,7 @@
     <title>Test Wiki client for WSO2 APIM</title>
 
     <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8" />
+    <meta http-equiv="Skuska" content="Peter" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -33,6 +34,7 @@
                 <ul class="nav nav-tabs">
                     <li role="presentation" class="active myTabs"><a href="#wiki" aria-controls="home" role="tab" data-toggle="tab">Wikipedia</a></li>
                     <li role="presentation" class="myTabs"><a href="#calc" aria-controls="profile" role="tab" data-toggle="tab">Calculator</a></li>
+                    <li role="presentation" class="myTabs"><a href="#sandman" aria-controls="profile" role="tab" data-toggle="tab">Sandman</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="wiki">
@@ -61,7 +63,6 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="calc">
-                        <div role="tabpanel" class="tab-pane active" id="calc">
                         <div class="panel panel-primary">
                             <div class="panel-heading"><strong>Calculator API</strong></div>
                             <div class="panel-body">
@@ -95,6 +96,21 @@
                             </div>
                         </div>
                     </div>
+                    <div role="tabpanel" class="tab-pane" id="sandman">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><strong>Sandman API</strong></div>
+                            <div class="panel-body">
+                                <form class="form" id="sandmanForm">
+                                    <div class="form-group" id="">
+                                        <label for="fileEnter">Gimme file: </label>
+                                        <input type="file" id="fileEnter" name="file">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="button" id="sendFile">Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
