@@ -164,7 +164,7 @@ $(document).ready(function(){
 
     var files;
 
-    $("#fileEnter").on('change', prepareUpload);
+    //$("#fileEnter").on('change', prepareUpload);
 
     // Grab the files and set them to our variable
     function prepareUpload(event)
@@ -172,9 +172,16 @@ $(document).ready(function(){
         files = event.target.files;
     }
 
-    $('#sendFile').click(function(event){
-        var URL = "http://10.100.103.31:8180/sandman/startSandman";
-        //var URL = "http://10.100.103.31:8280/sandman/1.0.0/startSandman";
+    //var URL = "http://10.100.103.31:8280/sandman/startSandman";
+    //var URL = "http://10.100.103.31:8280/sandman/1.0.0/startSandman";
+    //var URL = "http://10.100.103.31:8080/sandman/startSandman";
+    var URL = "http://10.100.103.31:8280/sandmanUpload/1.0.0"
+
+    $('#fileEnter').upload(URL,"1e2fe3f6b10769ff604b0817833f30f3");
+    //$('#fileEnter').upload(URL,autorization);
+
+    $('#sendFile_').click(function(event){
+
         event.stopPropagation();
         event.preventDefault();
 
@@ -193,6 +200,7 @@ $(document).ready(function(){
             method: "POST",
             processData: false,
             data: formData,
+            headers: { "Authorization": "Bearer " + autorization},
             success: function(data, textStatus, jqXHR)
             {
                 if(typeof data.error === 'undefined')
