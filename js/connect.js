@@ -19,12 +19,16 @@ $(document).ready(function(){
         //$(p).wrap('<div class="embed-responsive embed-responsive-16by9"/>');
         //$(p).addClass('embed-responsive-item');
         //$(p).html = "";
+
         var bodyFrame = $("#htmlReturn").contents().find("body");
         var headFrame = $("#htmlReturn").contents().find("head");
-        if (vonHead)
+
+        if (vonHead){
             $(headFrame).html(vonHead[1]);
-        if (vonBody)
+            }
+        if (vonBody){
             $(bodyFrame).html(vonBody[1]);
+            }
     }
 
     function wikiList(){
@@ -174,10 +178,10 @@ $(document).ready(function(){
 
     //var URL = "http://10.100.103.31:8280/sandman/startSandman";
     //var URL = "http://10.100.103.31:8280/sandman/1.0.0/startSandman";
-    //var URL = "http://10.100.103.31:8080/sandman/startSandman";
-    var URL = "http://10.100.103.31:8280/sandmanUpload/1.0.0"
+    var URL = "http://10.100.103.31:8080/sandman/startSandman";
+    //var URL = "http://10.100.103.31:8280/sandmanUpload/1.0.0"
 
-    $('#fileEnter').upload(URL,"1e2fe3f6b10769ff604b0817833f30f3");
+    $('#fileEnter').upload(URL,autorization);
     //$('#fileEnter').upload(URL,autorization);
 
     $('#sendFile_').click(function(event){
