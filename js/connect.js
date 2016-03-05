@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var IP = "http://10.100.103.31:8280/wikipedia/1.0.0";
+    var IP = "http://ganesha:8280/wikipedia/1.0.0";
     var autorization = "9205d37e9d299eb361c12165797d86a2";
 
     function consoleT(text, trieda, okno){
@@ -57,7 +57,7 @@ $(document).ready(function(){
     function wiki(){
         $("#serverIP").text(IP);
         var searchText = $("#wikisearch").val();
-        var URL = "http://10.100.103.31:8280/wikipedia/search/1.0.0/" + searchText;
+        var URL = "http://ganesha:8280/wikipedia/search/1.0.0/" + searchText;
         consoleT('Connecting to ' + URL, "input", "#console");
         $.ajax({
             url: URL,
@@ -104,7 +104,7 @@ $(document).ready(function(){
     $("#regenerateButton").click(function(event){
         console.log("regenerate");
          $.ajax({
-            url: "https://10.100.103.31:8243/token",
+            url: "https://ganesha:8243/token",
             data: {"grant_type" : "client_credentials"},
             headers: { "Authorization": "Basic X2dQMExoZmMwb2RITzFIUHJzN18yNE1Ha0w4YTpNREU5b0VKZzRabUs0SXJxNXZYQ2JZdFVKMUlh"},
             //dataType: "json",
@@ -183,6 +183,31 @@ $(document).ready(function(){
 
     $('#fileEnter').upload(URL,autorization);
     //$('#fileEnter').upload(URL,autorization);
+
+    $("#getProcessedDocs").click(function(event){
+        event.stopPropagation();
+        event.preventDefault();
+
+        $.ajax({
+                url: "http://10.100.103.31:8280/sandman/1.0.0/sandman/successfullyProcessedDocuments",
+                headers: { "Authorization": "Bearer " + autorization},
+                //dataType: "json",
+                method: "GET",
+                error: function(jqXHR, textStatus, errorThrown){
+                    console.log(textStatus + ", " + jqXHR.status);
+                    console.log(errorThrown);
+                }
+            }).complete(function(data) {
+                if (data.status == 200){
+                    //consoleT(data.responseText,"ouput", "#console");
+                    $("#processedDocuments").html(data.responseText);
+                }
+                else {
+                    console.log("status: " + data.statusText + " " + data.status + " " + data.getAllResponseHeaders());
+                }
+            });
+
+    })
 
     $('#sendFile_').click(function(event){
 
